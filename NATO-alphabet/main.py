@@ -1,9 +1,16 @@
 import pandas as pd
 df = pd.read_csv("nato_phonetic_alphabet.csv")
+is_running = True
 phonetic_alphabets = {row.letter: row.code for (index, row) in df.iterrows()}
-user_input = input("Enter your name: ")
-new_value = [phonetic_alphabets[value.upper()] for value in user_input]
-print(new_value)
+while is_running:
+    user_input = input("Enter your name: ")
+    try:
+        new_value = [phonetic_alphabets[value.upper()] for value in user_input]
+    except KeyError:
+        print("Sorry! Only letters in the alphabets")
+    else:
+        print(new_value)
+        is_running = False
 
 # student_dict = {
 #     "student": ["Angela", "James", "Lily"],
