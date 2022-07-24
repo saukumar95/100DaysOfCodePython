@@ -7,8 +7,8 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 1
-SHORT_BREAK_MIN = 1
+WORK_MIN = 25
+SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 reps = 0
 timer = ""
@@ -55,7 +55,7 @@ def count_down(count):
     if count_sec == 0:
         count_sec = "00"
     elif count_sec < 10:
-        count_sec = f"0{count}"
+        count_sec = f"0{count_sec}"
 
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
 
