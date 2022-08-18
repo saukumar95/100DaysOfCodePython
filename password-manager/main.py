@@ -84,6 +84,10 @@ def fetch_record():
                 record = json_data[website_name]
                 messagebox.showinfo(title=website_name, message=f"Email/Username: {record['email']}\n"
                                                                 f"Password: {record['password']}")
+                # Added copy to clip board feature when user search for password in system.
+                pyperclip.copy(record['password'])
+                messagebox.showinfo(title=website_name, message=f"Password for email {record['email']} "
+                                                                f"copied to clipboard")
         except FileNotFoundError:
             with open("data.json", "w"):
                 messagebox.showerror(title='Error', message='No Data File Found.')
